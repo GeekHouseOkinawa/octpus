@@ -7,3 +7,6 @@ branches:
 before_install:
 - openssl aes-256-cbc -K $encrypted_6371fc667431_key -iv $encrypted_6371fc667431_iv
   -in octpus.enc -out octpus -d
+env:
+  global:
+    secure: G3epFV0bTNiss8XoeeEer9e3bR9tcoUfs8ywEyNXd0FmKthJs1ymYe9qLC2fZmml5m1WMrFHjgHy4FsYWhtgyjWWmHI78aRxsi6KYsQqWH4VNSYVc8lB/loTQDumQXyBeYgQ3zhwv0zZp1vpbg/zwG3T8kNL2jZWA4rW7h9A3AE=
