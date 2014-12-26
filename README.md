@@ -1,0 +1,7 @@
+- adduser octpus
+- adduser octpus sudo
+- `mkdir /home/octpus/.ssh`
+- add octpus.pub to `/home/octpus/.ssh/authorized_keys`
+- disable user password login
+- disable root password login
+- add `octpus  ALL=(ALL:ALL) NOPASSWD:ALL`
