@@ -10,4 +10,5 @@ before_install:
 env:
   global:
   - secure: ZRGB33f41my5smKtusJYoaQp+4IcOaogpLUPvVWuGl1ty88D0pxMt/tgzm/Md3uoBrfixmlIV9GDF4LoRw5mb0qQ9iunKyaciwItxxPbQChcnrxATZGwRsW4L/WxuRZh5MP8siwpkItMaarM+yDe/yzTGc5B09nJ8XEZdjE0cCM=
-script: bundle exec itamae ssh -h $host -u octpus -i octpus recipe.rb
+  - secure: XVY6espWrdQeplf0JbGbq/LoQzRHOKTUeIL4VMT3LVZT8eZ2k+JZ611nbaH89S7keeciwLKPAU64uYWw8Ad/XYuoy00ec2b2i5uIcCyHRsEHcq/V6DGyeysOAZnAke4Q7QIsvZtbsaVCH+yW88UAhABq5LJuRkvjC+XV0UHiGYs=
+script: bundle exec itamae ssh -h $host -p $port -u octpus -i octpus recipe.rb
