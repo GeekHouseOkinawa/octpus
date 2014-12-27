@@ -9,5 +9,5 @@ before_install:
   -in octpus.enc -out octpus -d
 env:
   global:
-    secure: G3epFV0bTNiss8XoeeEer9e3bR9tcoUfs8ywEyNXd0FmKthJs1ymYe9qLC2fZmml5m1WMrFHjgHy4FsYWhtgyjWWmHI78aRxsi6KYsQqWH4VNSYVc8lB/loTQDumQXyBeYgQ3zhwv0zZp1vpbg/zwG3T8kNL2jZWA4rW7h9A3AE=
+  - secure: ZRGB33f41my5smKtusJYoaQp+4IcOaogpLUPvVWuGl1ty88D0pxMt/tgzm/Md3uoBrfixmlIV9GDF4LoRw5mb0qQ9iunKyaciwItxxPbQChcnrxATZGwRsW4L/WxuRZh5MP8siwpkItMaarM+yDe/yzTGc5B09nJ8XEZdjE0cCM=
 script: bundle exec itamae ssh -h $host -u octpus -i octpus recipe.rb
