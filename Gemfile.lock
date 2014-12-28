@@ -8,7 +8,7 @@ GEM
       hashie
       specinfra (~> 2.1)
       thor
-    itamae-plugin-recipe-minecraft (0.0.1)
+    itamae-plugin-recipe-minecraft (0.0.2)
     itamae-plugin-recipe-oracle_jdk (0.0.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
