@@ -1,0 +1,8 @@
+{
+  "minecraft": {
+    "user": "minecraft",
+    "version": "1.8.1",
+    "max_heap": 256,
+    "min_heap": 128
+  }
+}
