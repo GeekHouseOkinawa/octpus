@@ -88,3 +88,23 @@ end
 link '/usr/share/nginx/www/mcmap' do
   to '/opt/minecraft/mcmap'
 end
+
+# idobata -> minecraft
+git '/home/octpus/mc_bot' do
+  user 'octpus'
+  repository 'https://github.com/GeekHouseOkinawa/mc_bot.git'
+end
+
+execute 'bundle install' do
+  user 'octpus'
+  command 'bundle install'
+  cwd '/home/octpus/mc_bot'
+end
+
+file '/home/octpus/mc_bot/.env' do
+  owner 'octpus'
+  group 'octpus'
+  content "IDOBATA_API_TOKEN=#{ENV['IDOBATA_API_TOKEN']}"
+end
+
+# TODO: 自動で実行して欲しい

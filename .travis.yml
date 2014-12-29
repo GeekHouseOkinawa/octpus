@@ -13,5 +13,6 @@ env:
   - secure: XVY6espWrdQeplf0JbGbq/LoQzRHOKTUeIL4VMT3LVZT8eZ2k+JZ611nbaH89S7keeciwLKPAU64uYWw8Ad/XYuoy00ec2b2i5uIcCyHRsEHcq/V6DGyeysOAZnAke4Q7QIsvZtbsaVCH+yW88UAhABq5LJuRkvjC+XV0UHiGYs=
   - secure: m0mVcPjEPt+Bog/ES4XnVSDTvE/+bpzzsqLr3A/vS09LGUNkJV1evCRtYCQpNvvbHjNx+9PAbeQesoJ0xUufoed5cc29YvY4MfITgMJFe7UzRnpNqZ+1Qydic8smncKi+ACqD+oS9m3krPijMryb+nBiJwZGb5rxMk10ZPpFMao=
   - secure: ukzbzJopoYoYESMPd3ABzSFCNbs1V8mH18WcUjvdSH55v8lkWXI5R/vyJ+IF6c2ndzpGotFTFqW3AXk8Kf90bvMeXmQMr49DLh5zIwvDLG+WB3J0/oq326DtHVXm2PQ0hjx7PYWJB909TftrcTeL65M5BZFlkzZ6PKnknlQlGNI=
+  - secure: ZwEZiRt6R97zThcU1i0i/0u8gj58r1RLWI5wSzSn9iOA/DhfIprx9uqOHqaHs5t2L9ABt5DsZI33G9Su7uVHkkbppR5OdKPSFWUu5f2NNcHfD9JAhyElESWtOpOCwpFzbdAMPEkdh1ZDaVpfYZ/c5REWl4z7V60F78CZOiR0Bqo=
 script: bundle exec itamae ssh -h $host -p $port -u octpus -i octpus -y octpus.yml
   recipe.rb
