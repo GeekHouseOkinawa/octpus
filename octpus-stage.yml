@@ -4,8 +4,10 @@ minecraft:
   version: 1.8.1
   max_heap: 256
   min_heap: 128
-rbenv:
+rtn_rbenv:
   global: 2.2.0
   versions:
-  - 2.2.0
-  - 2.1.5
+    2.2.0:
+      - bundler
+    2.1.5:
+      - bundler
