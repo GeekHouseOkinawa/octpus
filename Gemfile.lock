@@ -12,6 +12,7 @@ GEM
       thor
     itamae-plugin-recipe-minecraft (0.0.4)
     itamae-plugin-recipe-oracle_jdk (0.0.2)
+    itamae-plugin-recipe-rbenv (0.1.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -28,3 +29,4 @@ DEPENDENCIES
   itamae
   itamae-plugin-recipe-minecraft
   itamae-plugin-recipe-oracle_jdk
+  itamae-plugin-recipe-rbenv
