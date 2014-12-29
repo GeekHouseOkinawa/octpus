@@ -89,5 +89,7 @@ Graph do
   edge :Fluentd_Octpus, label: '鯖の会話ログを監視'
   edge :Fluentd_Idobata, label: '鯖の会話を井戸端会議に垂れ流す'
 
+  edge :Geek_Idobata, label: '井戸端会議する', minlen: 2
+
   save :architecture_diagram, :png
 end

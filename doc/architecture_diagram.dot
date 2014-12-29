@@ -78,4 +78,5 @@ digraph G {
   Bot -> Octpus[label="鯖に井戸端会議を垂れ流す"];
   Fluentd -> Octpus[label="鯖の会話ログを監視"];
   Fluentd -> Idobata[label="鯖の会話を井戸端会議に垂れ流す"];
+  Geek -> Idobata[label="井戸端会議する",minlen="2"];
 }
