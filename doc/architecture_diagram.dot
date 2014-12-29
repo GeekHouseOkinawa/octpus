@@ -1,0 +1,81 @@
+digraph G {
+  subgraph cluster0 {
+    label="GitHub";
+    penwidth="0";
+    fontsize="20";
+    GitHub;
+  }
+  subgraph cluster1 {
+    label="料理人";
+    penwidth="0";
+    fontsize="20";
+    TravisCI;
+  }
+  subgraph cluster2 {
+    label="ギー沖住人";
+    penwidth="0";
+    fontsize="20";
+    Geek;
+  }
+  subgraph cluster3 {
+    label="しょぼいDDNS";
+    penwidth="0";
+    fontsize="20";
+    ShyoboiDDNS;
+  }
+  subgraph cluster4 {
+    label="Route 53";
+    penwidth="0";
+    fontsize="20";
+    Route53;
+  }
+  subgraph cluster5 {
+    subgraph cluster0 {
+      label="鯖";
+      penwidth="0";
+      fontsize="20";
+      Octpus;
+    }
+    subgraph cluster1 {
+      label="Bot";
+      penwidth="0";
+      fontsize="20";
+      Bot;
+    }
+    label="タコ壷マシン";
+    fontsize="20";
+    Octpus[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/minecraft_200x200.png",label="",shape="none"];
+    Bot[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/creeper_200x200.png",label="",shape="none"];
+    Fluentd[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/fluentd_200x200.png",label="",shape="none"];
+  }
+  subgraph cluster6 {
+    label="idobata";
+    penwidth="0";
+    fontsize="20";
+    Idobata;
+  }
+  overlap="false";
+  nodesep="1.1";
+  rankdir="LR";
+  GitHub[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/mark_github_200x200.png",label="",shape="none"];
+  TravisCI[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/travis_200x200.png",label="",shape="none"];
+  Geek[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/person_200x200.png",label="",shape="none"];
+  ShyoboiDDNS[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/heroku_200x200.png",label="",shape="none"];
+  Route53[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/route53_200x200.png",label="",shape="none"];
+  Idobata[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/idobata_200x200.png",label="",shape="none"];
+  Octpus;
+  Bot;
+  Fluentd;
+  Geek -> Route53[label="鯖の場所を問い合わせ"];
+  Route53 -> Geek[label="鯖の場所を返す"];
+  GitHub -> TravisCI[label="レシピを料理人にお届け"];
+  Geek -> GitHub[label="レシピをpush"];
+  TravisCI -> Octpus[label="レシピにしたがって鯖を調理"];
+  Geek -> Octpus[label="できあがった鯖を\nもぐもぐ"];
+  Octpus -> ShyoboiDDNS[label="定期的に居場所を通知"];
+  ShyoboiDDNS -> Route53[label="鯖の場所を更新"];
+  Bot -> Idobata[label="井戸端場会議を監視"];
+  Bot -> Octpus[label="鯖に井戸端会議を垂れ流す"];
+  Fluentd -> Octpus[label="鯖の会話ログを監視"];
+  Fluentd -> Idobata[label="鯖の会話を井戸端会議に垂れ流す"];
+}
