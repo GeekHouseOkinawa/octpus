@@ -97,7 +97,7 @@ end
 
 execute 'bundle install' do
   user 'octpus'
-  command '. /etc/profile.d/rbenv.sh && bundle install'
+  command '. /etc/profile.d/rbenv.sh && bundle install --path vendor/bundle'
   cwd '/home/octpus/mc_bot'
 end
 
