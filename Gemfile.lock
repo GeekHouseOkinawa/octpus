@@ -10,7 +10,7 @@ GEM
       hashie
       specinfra (~> 2.1)
       thor
-    itamae-plugin-recipe-minecraft (0.0.4)
+    itamae-plugin-recipe-minecraft (0.0.5)
     itamae-plugin-recipe-oracle_jdk (0.0.2)
     itamae-plugin-recipe-rtn_rbenv (0.0.4)
       itamae (~> 1.0)
