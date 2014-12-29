@@ -2,6 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     ansi (1.4.3)
+    gviz (0.3.4)
+      thor
     hashie (3.3.2)
     itamae (1.1.1)
       ansi
@@ -22,6 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  gviz
   itamae
   itamae-plugin-recipe-minecraft
   itamae-plugin-recipe-oracle_jdk
