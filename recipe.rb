@@ -61,6 +61,19 @@ service 'td-agent' do
   action %i(start enable)
 end
 
+
+template '/home/octpus/crontab' do
+  source 'crontab.octpus.erb'
+  owner 'octpus'
+  group 'octpus'
+  variables(ddns_url: ENV['DDNS_URL'])
+end
+
+execute 'register octpus crontab' do
+  command 'crontab /home/octpus/crontab'
+  user    'octpus'
+end
+
 template '/opt/minecraft/crontab' do
   source 'crontab.erb'
   owner node[:minecraft][:user]
