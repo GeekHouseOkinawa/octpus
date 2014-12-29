@@ -24,3 +24,4 @@
 - [File:Heroku logo.png - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/File:Heroku_logo.png)
 - [IdobataのGitHub登録メールアドレスのGravatar](https://github.com/idobata)
 - [Fluentdロゴ | Fluentd](http://docs.fluentd.org/ja/articles/logo)
+- [File:Nginx logo.svg - Wikimedia Commons](http://commons.wikimedia.org/wiki/File:Nginx_logo.svg)

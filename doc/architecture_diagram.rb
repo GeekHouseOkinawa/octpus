@@ -42,6 +42,7 @@ remote_image :route53,     'http://upload.wikimedia.org/wikipedia/commons/c/c9/A
 remote_image :heroku,      'http://upload.wikimedia.org/wikipedia/en/a/a9/Heroku_logo.png'
 remote_image :idobata,     'http://www.gravatar.com/avatar/9fef32520aa08836d774873cb8b7df28?s=200'
 remote_image :fluentd,     'https://raw.githubusercontent.com/fluent/website/master/logos/fluentd.png'
+remote_image :nginx,       'http://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg'
 
 def icon_node(name, icon:, label: name.to_s, &block)
   node name, image: icon, label: '', shape: 'none'
@@ -56,21 +57,24 @@ Graph do
   global overlap: false, nodesep: 1.1, rankdir: 'LR'
   icon_node :GitHub, icon: mark_github
   icon_node :TravisCI, icon: travis, label: '料理人'
-  icon_node :Geek, icon: person, label: 'ギー沖住人'
-  icon_node :ShyoboiDDNS, icon: heroku, label: 'しょぼいDDNS'
+  icon_node :Geek, icon: person, label: 'ギー沖住人　　　　　　'
   icon_node :Route53, icon: route53, label: 'Route 53'
+  icon_node :ShyoboiDDNS, icon: heroku, label: 'しょぼいDDNS'
 
   subgraph do
-    global label: 'タコ壷マシン', fontsize: 20
+    global label: 'タコ壷マシン', fontsize: 30, fontcolor: 'deeppink4', pencolor: 'deeppink4', style: 'bold', fontname: 'Hiragino Kaku Gothic Std'
     icon_node :Octpus, icon: minecraft, label: '鯖'
     icon_node :Bot, icon: creeper, label: 'Bot'
+    icon_node :Map, icon: nginx, label: '地図配信鯖'
+    node :Cron, label: 'cron', fillcolor: 'darkorchid2', style:'filled'
     node :Fluentd, image: fluentd, label: '', shape: 'none'
   end
 
   icon_node :Idobata, icon: idobata, label: 'idobata'
 
   edge :Geek_Route53, label: '鯖の場所を問い合わせ'
-  edge :Route53_Geek, label: '鯖の場所を返す'
+  # 調節 ><
+  edge :Route53_Geek, label: '', color: 'white', style: 'none'
 
   edge :GitHub_TravisCI, label: 'レシピを料理人にお届け'
   edge :Geek_GitHub, label: 'レシピをpush'
@@ -80,14 +84,18 @@ Graph do
 
   edge :Geek_Octpus, label: "できあがった鯖を\nもぐもぐ"
 
-  edge :Octpus_ShyoboiDDNS, label: '定期的に居場所を通知'
   edge :ShyoboiDDNS_Route53, label: '鯖の場所を更新' #'受け取ったIPアドレスでminecraft.hanach.inのDNSレコードを更新'
 
-  edge :Bot_Idobata, label: '井戸端場会議を監視'
-  edge :Bot_Octpus, label: '鯖に井戸端会議を垂れ流す'
+  edge :Bot_Idobata, label: '井戸端場会議を監視', color: 'darkolivegreen3', fontcolor: 'chartreuse4'
+  edge :Bot_Octpus, label: '鯖に井戸端会議を垂れ流す', color: 'darkolivegreen3', fontcolor: 'chartreuse4'
 
-  edge :Fluentd_Octpus, label: '鯖の会話ログを監視'
-  edge :Fluentd_Idobata, label: '鯖の会話を井戸端会議に垂れ流す'
+  edge :Fluentd_Octpus, label: '鯖の会話ログを監視', color: 'deepskyblue2', fontcolor: 'deepskyblue4'
+  edge :Fluentd_Idobata, label: '鯖の会話を井戸端会議に垂れ流す', color: 'deepskyblue2', fontcolor: 'deepskyblue4'
+
+  edge :Cron_ShyoboiDDNS, label: '居場所を通知', color: 'darkorchid2', fontcolor: 'darkorchid4'
+  edge :Cron_Map, label: '定期的に鯖の地図を設置', color: 'darkorchid2', fontcolor: 'darkorchid4'
+
+  edge :Geek_Map, label: '鯖の地図を見る'
 
   edge :Geek_Idobata, label: '井戸端会議する', minlen: 2
 

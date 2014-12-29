@@ -12,22 +12,22 @@ digraph G {
     TravisCI;
   }
   subgraph cluster2 {
-    label="ギー沖住人";
+    label="ギー沖住人　　　　　　";
     penwidth="0";
     fontsize="20";
     Geek;
   }
   subgraph cluster3 {
-    label="しょぼいDDNS";
-    penwidth="0";
-    fontsize="20";
-    ShyoboiDDNS;
-  }
-  subgraph cluster4 {
     label="Route 53";
     penwidth="0";
     fontsize="20";
     Route53;
+  }
+  subgraph cluster4 {
+    label="しょぼいDDNS";
+    penwidth="0";
+    fontsize="20";
+    ShyoboiDDNS;
   }
   subgraph cluster5 {
     subgraph cluster0 {
@@ -42,10 +42,22 @@ digraph G {
       fontsize="20";
       Bot;
     }
+    subgraph cluster2 {
+      label="地図配信鯖";
+      penwidth="0";
+      fontsize="20";
+      Map;
+    }
     label="タコ壷マシン";
-    fontsize="20";
+    fontsize="30";
+    fontcolor="deeppink4";
+    pencolor="deeppink4";
+    style="bold";
+    fontname="Hiragino Kaku Gothic Std";
     Octpus[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/minecraft_200x200.png",label="",shape="none"];
     Bot[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/creeper_200x200.png",label="",shape="none"];
+    Map[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/nginx_200x200.png",label="",shape="none"];
+    Cron[label="cron",fillcolor="darkorchid2",style="filled"];
     Fluentd[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/fluentd_200x200.png",label="",shape="none"];
   }
   subgraph cluster6 {
@@ -60,23 +72,27 @@ digraph G {
   GitHub[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/mark_github_200x200.png",label="",shape="none"];
   TravisCI[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/travis_200x200.png",label="",shape="none"];
   Geek[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/person_200x200.png",label="",shape="none"];
-  ShyoboiDDNS[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/heroku_200x200.png",label="",shape="none"];
   Route53[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/route53_200x200.png",label="",shape="none"];
+  ShyoboiDDNS[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/heroku_200x200.png",label="",shape="none"];
   Idobata[image="/Users/sei/src/github.com/GeekHouseOkinawa/octpus/doc/remote_images/idobata_200x200.png",label="",shape="none"];
   Octpus;
   Bot;
   Fluentd;
+  Cron;
+  Map;
   Geek -> Route53[label="鯖の場所を問い合わせ"];
-  Route53 -> Geek[label="鯖の場所を返す"];
+  Route53 -> Geek[label="",color="white",style="none"];
   GitHub -> TravisCI[label="レシピを料理人にお届け"];
   Geek -> GitHub[label="レシピをpush"];
   TravisCI -> Octpus[label="レシピにしたがって鯖を調理"];
   Geek -> Octpus[label="できあがった鯖を\nもぐもぐ"];
-  Octpus -> ShyoboiDDNS[label="定期的に居場所を通知"];
   ShyoboiDDNS -> Route53[label="鯖の場所を更新"];
-  Bot -> Idobata[label="井戸端場会議を監視"];
-  Bot -> Octpus[label="鯖に井戸端会議を垂れ流す"];
-  Fluentd -> Octpus[label="鯖の会話ログを監視"];
-  Fluentd -> Idobata[label="鯖の会話を井戸端会議に垂れ流す"];
+  Bot -> Idobata[label="井戸端場会議を監視",color="darkolivegreen3",fontcolor="chartreuse4"];
+  Bot -> Octpus[label="鯖に井戸端会議を垂れ流す",color="darkolivegreen3",fontcolor="chartreuse4"];
+  Fluentd -> Octpus[label="鯖の会話ログを監視",color="deepskyblue2",fontcolor="deepskyblue4"];
+  Fluentd -> Idobata[label="鯖の会話を井戸端会議に垂れ流す",color="deepskyblue2",fontcolor="deepskyblue4"];
+  Cron -> ShyoboiDDNS[label="居場所を通知",color="darkorchid2",fontcolor="darkorchid4"];
+  Cron -> Map[label="定期的に鯖の地図を設置",color="darkorchid2",fontcolor="darkorchid4"];
+  Geek -> Map[label="鯖の地図を見る"];
   Geek -> Idobata[label="井戸端会議する",minlen="2"];
 }
