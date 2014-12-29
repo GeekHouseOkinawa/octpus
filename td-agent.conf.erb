@@ -1,0 +1,60 @@
+<source>
+  type tail
+  path /opt/minecraft/logs/latest.log
+  format /^\[(?<time>.*)\]\s\[(?<caused_at>[^/]*)/(?<level>.*)\]:\s(?<log>.*)$/
+  time_format %H:%M:%S
+  tag minecraft.log
+  pos_file /etc/td-agent/minecraft.pos
+</source>
+<match minecraft.log.talk>
+  type record_reformer
+  tag reformed.${tag}
+
+  player ${log.match(/^<(?<player>.*)>\s.*$/)[:player]}
+  message ${log.match(/^<(?<player>.*)>\s(?<message>.*)$/)[:message]}
+</match>
+<match minecraft.log.join>
+  type record_reformer
+  tag reformed.${tag}
+
+  player ${log.match(/^(?<player>.*)\sjoined\sthe\sgame$/)[:player]}
+</match>
+<match minecraft.log.left>
+  type record_reformer
+  tag reformed.${tag}
+
+  player ${log.match(/^(?<player>.*)\sleft\sthe\sgame$/)[:player]}
+</match>
+<match minecraft.log>
+  type rewrite_tag_filter
+  rewriterule1 log ^\<.*\>\s.*$ minecraft.log.talk
+  rewriterule2 log ^.*\sjoined\sthe\sgame$ minecraft.log.join
+  rewriterule3 log ^.*\sleft\sthe\sgame$ minecraft.log.left
+</match>
+<match debug.**>
+  type stdout
+</match>
+<match reformed.minecraft.log.join>
+  type copy
+  <store>
+    type idobata
+    webhook_url          <%= @idobata_hook_url %>
+    message_template     @all <%%= record['player'] %>がマイクラはじめたみたい
+  </store>
+</match>
+<match reformed.minecraft.log.left>
+  type copy
+  <store>
+    type idobata
+    webhook_url          <%= @idobata_hook_url %>
+    message_template     @all <%%= record['player'] %>がマイクラおわったみたい
+  </store>
+</match>
+<match reformed.minecraft.log.talk>
+  type copy
+  <store>
+    type idobata
+    webhook_url          <%= @idobata_hook_url %>
+    message_template     <<%%= record['player'] %>> <%%= record['message'].to_hiragana %>
+  </store>
+</match>
