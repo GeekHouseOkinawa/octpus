@@ -90,20 +90,20 @@ link '/usr/share/nginx/www/mcmap' do
 end
 
 # idobata -> minecraft
-git '/home/octpus/mc_bot' do
-  user 'octpus'
+git '/opt/minecraft/mc_bot' do
+  user 'minecraft'
   repository 'https://github.com/GeekHouseOkinawa/mc_bot.git'
 end
 
 execute 'bundle install' do
-  user 'octpus'
+  user 'minecraft'
   command '. /etc/profile.d/rbenv.sh && bundle install --path vendor/bundle'
-  cwd '/home/octpus/mc_bot'
+  cwd '/opt/minecraft/mc_bot'
 end
 
-file '/home/octpus/mc_bot/.env' do
-  owner 'octpus'
-  group 'octpus'
+file '/opt/minecraft/mc_bot/.env' do
+  owner 'minecraft'
+  group 'minecraft'
   content "IDOBATA_API_TOKEN=#{ENV['IDOBATA_API_TOKEN']}"
 end
 
